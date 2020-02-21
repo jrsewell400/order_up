@@ -9,9 +9,9 @@ RSpec.describe "As a visitor,", type: :feature do
             chef1 = Chef.create(name: 'Jordan Sewell')
             chef2 = Chef.create(name: 'Hilary Sewell')
 
-            dish1 = Dish.create(name: 'Spaghetti')
-            dish2 = Dish.create(name: 'Grilled Cheese')
-
+            dish1 = Dish.create(name: 'Spaghetti', description: 'Good', chef_id: chef1)
+            dish2 = Dish.create(name: 'Grilled Cheese', description: 'Great', chef_id: chef2)
+binding.pry
             ingredient1 = Ingredient.create(name: 'Noodles', calories: 100)
             ingredient2 = Ingredient.create(name: 'Tomato Sauce', calories: 50)
             ingredient3 = Ingredient.create(name: 'Bread', calories: 150)

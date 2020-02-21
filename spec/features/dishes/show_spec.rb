@@ -6,16 +6,19 @@ RSpec.describe "As a visitor,", type: :feature do
             chef1 = Chef.create(name: 'Jordan Sewell')
             chef2 = Chef.create(name: 'Hilary Sewell')
 
-            dish1 = Dish.create(name: 'Spaghetti',
-                                calories: 600)
-            dish2 = Dish.create(name: 'Grilled Cheese',
-                                calories: 500)
+            dish1 = Dish.create(name: 'Spaghetti')
+            dish2 = Dish.create(name: 'Grilled Cheese')
 
-            ingredient1 = Ingredient.create(name: 'Noodles')
-            ingredient2 = Ingredient.create(name: 'Tomato Sauce')
-            ingredient3 = Ingredient.create(name: 'Bread')
-            ingredient4 = Ingredient.create(name: 'Cheese')
+            ingredient1 = Ingredient.create(name: 'Noodles', calories: 100)
+            ingredient2 = Ingredient.create(name: 'Tomato Sauce', calories: 50)
+            ingredient3 = Ingredient.create(name: 'Bread', calories: 150)
+            ingredient4 = Ingredient.create(name: 'Cheese', calories: 200)
             
+            DishIngredient.create(dish: dish1, ingredient: ingredient1) 
+            DishIngredient.create(dish: dish1, ingredient: ingredient2)
+            DishIngredient.create(dish: dish2, ingredient: ingredient3) 
+            DishIngredient.create(dish: dish2, ingredient: ingredient4)
+
             visit '/dishes'
 
             expect(page).to have_content('Spaghetti')

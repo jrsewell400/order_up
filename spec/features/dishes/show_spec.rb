@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "As a visitor,", type: :feature do
+    
     describe "when I visit a dish's show page" do 
-        it "I see the name of the chef that made the dish, and a list of the dish's ingredients." do 
+
+        it "I see the name of the chef that made the dish, and a list of the dish's ingredients." do
+
             chef1 = Chef.create(name: 'Jordan Sewell')
             chef2 = Chef.create(name: 'Hilary Sewell')
 
@@ -19,7 +22,7 @@ RSpec.describe "As a visitor,", type: :feature do
             DishIngredient.create(dish: dish2, ingredient: ingredient3) 
             DishIngredient.create(dish: dish2, ingredient: ingredient4)
 
-            visit '/dishes'
+            visit "/dishes"
 
             expect(page).to have_content('Spaghetti')
             expect(page).to have_content('Jordan Sewell')
